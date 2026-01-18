@@ -13,18 +13,18 @@
 /* ===============================
    MAIN NAVBAR
 ================================ */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 40px;
-  background: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  height  : 64px;
-}
+    .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* height  : 64px; */
+    }
 
 /* LEFT SIDE */
 .nav-left {
@@ -135,12 +135,12 @@
    MOBILE MENU – CORRECT FIX
 ================================ */
 .mobile-menu {
-  position: fixed;          /* 🔥 KEY FIX */
-  top: 64px;                /* height of navbar */
+  position: fixed;
+  top: 120px;                 /* ⬅️ MUST match navbar height */
   left: 0;
   width: 100%;
 
-  max-height: calc(100vh - 64px);
+  max-height: calc(100vh - 70px);
   overflow-y: auto;
 
   background: #e26b14;
@@ -150,6 +150,7 @@
   z-index: 999;
   -webkit-overflow-scrolling: touch;
 }
+
 
 .mobile-menu a,
 .mobile-parent {
