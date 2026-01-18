@@ -1,11 +1,17 @@
 import { NavLink } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import "../styles/navbar.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setAboutOpen(false);
+    setServicesOpen(false);
+  };
 
   return (
     <>
@@ -15,14 +21,14 @@ function Navbar() {
       </div>
 
       {/* MAIN NAV */}
-      <nav className="navbar sticky">
-        {/* LEFT (LOGOS) */}
+      <nav className="navbar">
+        {/* LEFT */}
         <div className="nav-left">
           <div className="logo">GSC</div>
           <div className="rdso">RDSO</div>
         </div>
 
-        {/* RIGHT (HAMBURGER) */}
+        {/* HAMBURGER */}
         <div
           className="hamburger"
           onClick={() => setMenuOpen(prev => !prev)}
@@ -51,69 +57,55 @@ function Navbar() {
           <li><NavLink to="/careers" className="nav-item">Careers</NavLink></li>
           <li><NavLink to="/contact" className="nav-item">Contact</NavLink></li>
         </ul>
+
+        {/* ✅ MOBILE MENU — MUST BE INSIDE NAVBAR */}
+        {menuOpen && (
+          <div className="mobile-menu">
+
+            <NavLink to="/" onClick={closeMenu}>
+              Home
+            </NavLink>
+
+            {/* ABOUT */}
+            <div
+              className="mobile-parent"
+              onClick={() => setAboutOpen(prev => !prev)}
+            >
+              About Us
+            </div>
+
+            {aboutOpen && (
+              <div className="mobile-children">
+                <NavLink to="/about" onClick={closeMenu}>Management</NavLink>
+                <NavLink to="/infrastructure" onClick={closeMenu}>Infrastructure</NavLink>
+                <NavLink to="/quality" onClick={closeMenu}>Certifications</NavLink>
+              </div>
+            )}
+
+            {/* SERVICES */}
+            <div
+              className="mobile-parent"
+              onClick={() => setServicesOpen(prev => !prev)}
+            >
+              Products & Services
+            </div>
+
+            {servicesOpen && (
+              <div className="mobile-children">
+                <NavLink to="/services" onClick={closeMenu}>
+                  All Services
+                </NavLink>
+              </div>
+            )}
+
+            <NavLink to="/projects" onClick={closeMenu}>Projects</NavLink>
+            <NavLink to="/blog" onClick={closeMenu}>Blog</NavLink>
+            <NavLink to="/careers" onClick={closeMenu}>Careers</NavLink>
+            <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
+
+          </div>
+        )}
       </nav>
-
-      {/* MOBILE MENU */}
-      {menuOpen && (
-        <div className="mobile-menu">
-
-          <NavLink to="/" onClick={() => setMenuOpen(false)}>
-            Home
-          </NavLink>
-
-          {/* ABOUT US */}
-          <div
-            className="mobile-parent"
-            onClick={() => setAboutOpen(prev => !prev)}
-          >
-            About Us
-          </div>
-
-          {aboutOpen && (
-            <div className="mobile-children">
-              <NavLink to="/about" onClick={() => setMenuOpen(false)}>
-                Management
-              </NavLink>
-              <NavLink to="/infrastructure" onClick={() => setMenuOpen(false)}>
-                Infrastructure
-              </NavLink>
-              <NavLink to="/quality" onClick={() => setMenuOpen(false)}>
-                Certifications
-              </NavLink>
-            </div>
-          )}
-
-          {/* PRODUCTS */}
-          <div
-            className="mobile-parent"
-            onClick={() => setServicesOpen(prev => !prev)}
-          >
-            Products & Services
-          </div>
-
-          {servicesOpen && (
-            <div className="mobile-children">
-              <NavLink to="/services" onClick={() => setMenuOpen(false)}>
-                All Services
-              </NavLink>
-            </div>
-          )}
-
-          <NavLink to="/projects" onClick={() => setMenuOpen(false)}>
-            Projects
-          </NavLink>
-          <NavLink to="/blog" onClick={() => setMenuOpen(false)}>
-            Blog
-          </NavLink>
-          <NavLink to="/careers" onClick={() => setMenuOpen(false)}>
-            Careers
-          </NavLink>
-          <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
-            Contact
-          </NavLink>
-
-        </div>
-      )}
     </>
   );
 }

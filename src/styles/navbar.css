@@ -13,20 +13,23 @@
 /* ===============================
    MAIN NAVBAR
 ================================ */
-    .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 40px;
-    background: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    /* height  : 64px; */
-    }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: white;
 
-/* LEFT SIDE */
+  position: sticky; /* Desktop sticky */
+  top: 0;
+  z-index: 1000;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   LEFT SECTION
+================================ */
 .nav-left {
   display: flex;
   align-items: center;
@@ -125,22 +128,22 @@
    HAMBURGER ICON
 ================================ */
 .hamburger {
-  display: none; /* hidden on desktop */
+  display: none;
   font-size: 30px;
   cursor: pointer;
   color: #0f172a;
 }
 
 /* ===============================
-   MOBILE MENU – CORRECT FIX
+   MOBILE MENU
 ================================ */
 .mobile-menu {
-  position: fixed;
-  top: 120px;                 /* ⬅️ MUST match navbar height */
+  position: absolute;
+  top: 100%; /* Attached to navbar */
   left: 0;
   width: 100%;
 
-  max-height: calc(100vh - 70px);
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
 
   background: #e26b14;
@@ -150,7 +153,6 @@
   z-index: 999;
   -webkit-overflow-scrolling: touch;
 }
-
 
 .mobile-menu a,
 .mobile-parent {
@@ -165,7 +167,6 @@
   cursor: pointer;
 }
 
-/* Mobile children (stacked) */
 .mobile-children {
   background: #cf5f12;
   display: flex;
@@ -178,16 +179,20 @@
   font-weight: 500;
 }
 
-/* Hover */
 .mobile-menu a:hover,
 .mobile-parent:hover {
   background: rgba(0, 0, 0, 0.08);
 }
 
 /* ===============================
-   RESPONSIVE
+   RESPONSIVE FIX (KEY PART)
 ================================ */
 @media (max-width: 768px) {
+
+  .navbar {
+    position: relative; /* REMOVE sticky on mobile */
+  }
+
   .desktop {
     display: none;
   }
