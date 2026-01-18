@@ -1,0 +1,197 @@
+/* ===============================
+   TOP INFO BAR
+================================ */
+.top-bar {
+  background: #0b2c5d;
+  color: white;
+  padding: 8px 40px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/* ===============================
+   MAIN NAVBAR
+================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height  : 64px;
+}
+
+/* LEFT SIDE */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0b2c5d;
+}
+
+.rdso {
+  font-size: 13px;
+  padding: 4px 8px;
+  border: 1px solid #0b2c5d;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* ===============================
+   DESKTOP NAV LINKS
+================================ */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  font-weight: 600;
+}
+
+.nav-links li {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-item {
+  color: #1f2933;
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background: #f97316;
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+  width: 100%;
+}
+
+.nav-item.active {
+  color: #f97316;
+  font-weight: 700;
+}
+
+/* ===============================
+   DESKTOP DROPDOWN
+================================ */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1f2933;
+  min-width: 220px;
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu li {
+  padding: 14px 18px;
+  border-bottom: 1px solid #374151;
+}
+
+.dropdown-menu li:hover {
+  background: #374151;
+}
+
+.dropdown-menu .nav-item {
+  color: white;
+}
+
+/* ===============================
+   HAMBURGER ICON
+================================ */
+.hamburger {
+  display: none; /* hidden on desktop */
+  font-size: 30px;
+  cursor: pointer;
+  color: #0f172a;
+}
+
+/* ===============================
+   MOBILE MENU – CORRECT FIX
+================================ */
+.mobile-menu {
+  position: fixed;          /* 🔥 KEY FIX */
+  top: 64px;                /* height of navbar */
+  left: 0;
+  width: 100%;
+
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+
+  background: #e26b14;
+  display: flex;
+  flex-direction: column;
+
+  z-index: 999;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-menu a,
+.mobile-parent {
+  padding: 16px 22px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.mobile-parent {
+  cursor: pointer;
+}
+
+/* Mobile children (stacked) */
+.mobile-children {
+  background: #cf5f12;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-children a {
+  padding: 14px 40px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+/* Hover */
+.mobile-menu a:hover,
+.mobile-parent:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}

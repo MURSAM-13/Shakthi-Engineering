@@ -1,0 +1,122 @@
+/* Page Wrapper */
+.infra-page {
+  width: 100%;
+  font-family: "Segoe UI", sans-serif;
+  color: #1f2933;
+}
+
+/* Hero Section */
+.infra-hero {
+  height: 55vh;
+  background: linear-gradient(
+      rgba(15, 23, 42, 0.85),
+      rgba(15, 23, 42, 0.85)
+    ),
+    url("/images/hero.jpg") center/cover no-repeat;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+}
+
+.infra-hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.infra-hero p {
+  font-size: 18px;
+  max-width: 600px;
+}
+
+/* Content Section */
+.infra-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 60px;
+  align-items: center;
+}
+
+.infra-text h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.infra-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.infra-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Machinery Cards */
+.infra-cards {
+  background: #f8fafc;
+  padding: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.infra-cards .card {
+  background: white;
+  padding: 25px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 6px;
+  border-left: 5px solid #0f172a;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .infra-hero {
+    padding: 30px;
+    height: auto;
+  }
+
+  .infra-hero h1 {
+    font-size: 30px;
+  }
+
+  .infra-content {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+
+  .infra-cards {
+    padding: 30px;
+  }
+}
+/* Image hover */
+.infra-image {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.infra-image img {
+  transition: transform 0.5s ease;
+}
+
+.infra-image:hover img {
+  transform: scale(1.08);
+}
+
+/* Cards hover accent */
+.infra-cards .card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.infra-cards .card:hover {
+  background: var(--primary);
+  color: white;
+  border-left-color: var(--accent);
+}

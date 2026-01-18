@@ -1,0 +1,60 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   ROOT VARIABLES (THEME)
+========================= */
+:root {
+  --primary: #0f172a;
+  --secondary: #1e293b;
+  --accent: #2563eb;
+  --light: #f8fafc;
+  --dark-text: #1f2933;
+  --muted: #64748b;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  color: var(--dark-text);
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+/* =========================
+   GLOBAL ELEMENTS
+========================= */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================
+   COMMON PAGE WRAPPER
+========================= */
+.page {
+  padding: 60px;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 30px;
+  }
+}

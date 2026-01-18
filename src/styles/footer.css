@@ -1,0 +1,129 @@
+/* ===============================
+   FOOTER
+================================ */
+.footer {
+  background: linear-gradient(180deg, #06152f, #020b1d);
+  color: #d1d5db;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding: 80px 60px;
+}
+
+/* LOGO */
+.footer-logo {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+/* COLUMN */
+.footer-col h4 {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.footer-col h4::after {
+  content: "";
+  width: 40px;
+  height: 2px;
+  background: #f97316;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+}
+
+.footer-col p {
+  font-size: 14.5px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+/* QUICK LINKS */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul a:hover {
+  color: #f97316;
+}
+
+/* BUTTON */
+.footer-btn {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 22px;
+  border: 1px solid #4b5563;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-btn:hover {
+  background: #f97316;
+  border-color: #f97316;
+}
+
+/* SOCIAL */
+.social-icons {
+  display: flex;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 18px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: translateY(-3px);
+  color: #f97316;
+}
+
+/* CONTACT */
+.phone {
+  color: #f97316;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    padding: 60px 25px;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+  }
+}
